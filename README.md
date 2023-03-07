@@ -1,4 +1,4 @@
-# weathergo
+# Weather Go
 
 A new Flutter project.
 
