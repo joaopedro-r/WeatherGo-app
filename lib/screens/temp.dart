@@ -157,6 +157,17 @@ class _TempPageState extends State<TempPage> {
         DateFormat('\'atualizado em\' HH:mm \'de\' dd/MM/yyyy', 'pt_BR');
     String formattedUpdate = formatterUpdate.format(now);
 
+    Map dadosTeste = {
+      'cidade': 'Nova York',
+      'temperatura': -3,
+      'icone': '13n',
+      'descricao': 'neve',
+      'humidade': 90,
+      'vento': 12,
+      'nascerDoSol': '06:00',
+      'porDoSol': '18:00',
+    };
+
     return Scaffold(
       body: RefreshIndicator(
         backgroundColor: Colors.black,
@@ -172,17 +183,16 @@ class _TempPageState extends State<TempPage> {
                 image: DecorationImage(
                   image: AssetImage(
                       (isLoading == false && erroLocation == false)
-                          ? imagesBackground[weatherData['weather'][0]['icon']]
-                              ['local']
+                          ? imagesBackground[dadosTeste['icone']]['local']
                           : imagesBackground['50d']['local']),
                   fit: BoxFit.cover,
                   colorFilter:
                       const ColorFilter.mode(Colors.black45, BlendMode.darken),
                   alignment: Alignment.bottomCenter.add((isLoading == false)
                       ? Alignment(
-                          imagesBackground[weatherData['weather'][0]['icon']]
+                          imagesBackground[dadosTeste['icone']]
                               ['alignmentHorizontal'],
-                          imagesBackground[weatherData['weather'][0]['icon']]
+                          imagesBackground[dadosTeste['icone']]
                               ['alignmentVertical'],
                         )
                       : const Alignment(0, 0)),
@@ -240,7 +250,7 @@ class _TempPageState extends State<TempPage> {
                           children: [
                             Padding(
                               padding: EdgeInsets.only(top: size.height * 0.18),
-                              child: Text(addressData['subLocality'],
+                              child: Text(dadosTeste['cidade'],
                                   style: const TextStyle(
                                       fontSize: 35,
                                       fontFamily: 'Montserrat',
@@ -265,7 +275,7 @@ class _TempPageState extends State<TempPage> {
                                   ),
                                   children: <TextSpan>[
                                     TextSpan(
-                                      text: '$tempCelsiusº',
+                                      text: '${dadosTeste['temperatura']}º',
                                       style: const TextStyle(
                                         fontSize: 90,
                                         fontWeight: FontWeight.bold,
@@ -306,12 +316,12 @@ class _TempPageState extends State<TempPage> {
                                     children: [
                                       Image(
                                           image: NetworkImage(
-                                              'https://openweathermap.org/img/w/${weatherData['weather'][0]['icon']}.png')),
+                                              'https://openweathermap.org/img/w/${dadosTeste['icone']}.png')),
                                       Padding(
                                         padding: EdgeInsets.only(
                                             left: size.width * 0.02),
                                         child: Text(
-                                          '${weatherData['weather'][0]['description']}',
+                                          '${dadosTeste['descricao']}',
                                           style: const TextStyle(
                                             fontSize: 20,
                                             fontFamily: 'Montserrat',
@@ -373,7 +383,7 @@ class _TempPageState extends State<TempPage> {
                                                       color: Colors.white,
                                                     ),
                                                     Text(
-                                                      '${weatherData['main']['humidity']}%',
+                                                      '${dadosTeste['humidade']}%',
                                                       style: const TextStyle(
                                                         color: Colors.white,
                                                         fontFamily:
@@ -390,7 +400,7 @@ class _TempPageState extends State<TempPage> {
                                                       color: Colors.white,
                                                     ),
                                                     Text(
-                                                      timeSunrise,
+                                                      dadosTeste['nascerDoSol'],
                                                       style: const TextStyle(
                                                         color: Colors.white,
                                                         fontFamily:
@@ -415,7 +425,7 @@ class _TempPageState extends State<TempPage> {
                                                       color: Colors.white,
                                                     ),
                                                     Text(
-                                                      '$windSpeed km/h',
+                                                      '${dadosTeste['vento']} km/h',
                                                       style: const TextStyle(
                                                         color: Colors.white,
                                                         fontFamily:
@@ -432,7 +442,7 @@ class _TempPageState extends State<TempPage> {
                                                       color: Colors.white,
                                                     ),
                                                     Text(
-                                                      timeSunset,
+                                                      dadosTeste['porDoSol'],
                                                       style: const TextStyle(
                                                         color: Colors.white,
                                                         fontFamily:
@@ -447,17 +457,17 @@ class _TempPageState extends State<TempPage> {
                                           ],
                                         ),
                                       ),
-                                      Padding(
-                                        padding: EdgeInsets.only(
-                                            bottom: size.height * 0.03),
-                                        child: Text(
-                                          formattedUpdate,
-                                          style: const TextStyle(
-                                            color: Colors.white,
-                                            fontSize: 12,
-                                          ),
-                                        ),
-                                      ),
+                                      //Padding(
+                                      //  padding: EdgeInsets.only(
+                                      //      bottom: size.height * 0.03),
+                                      //  child: Text(
+                                      //    formattedUpdate,
+                                      //    style: const TextStyle(
+                                      //      color: Colors.white,
+                                      //      fontSize: 12,
+                                      //    ),
+                                      //  ),
+                                      //),
                                       //Container(
                                       //  padding: EdgeInsets.symmetric(
                                       //      vertical: size.height * 0.01),
