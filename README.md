@@ -1,5 +1,5 @@
 # Weather Go
-O objetivo do aplicativo é fornecer informações precisas e atualizadas sobre o clima em tempo real como a temperatura, condição climática, nível de humidade, velocidade do vento, horário do nascer e por do sol com base na localização do dispositivo. E assim tornar o dia a dia dos usuários mais fácil e confortável, fornecendo informações úteis e confiáveis sobre o clima em qualquer lugar e a qualquer momento.
+O objetivo do aplicativo é fornecer informações precisas e atualizadas sobre o clima em tempo real como a temperatura, condição climática, nível de humidade, velocidade do vento, horário do nascer e por do sol com base na localização do dispositivo. Assim tornando o dia a dia dos usuários mais fácil e confortável, fornecendo informações úteis e confiáveis sobre o clima em qualquer lugar e a qualquer momento.
 
 Para ter o clima em tempo real foi utilizado a API da Open Weather.
 
